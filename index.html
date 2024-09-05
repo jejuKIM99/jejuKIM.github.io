@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kim Hyun Su's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="side-indicator">
+        <div class="indicator" data-section="section1"></div>
+        <div class="indicator" data-section="section2"></div>
+        <div class="indicator" data-section="section3"></div>
+        <div class="indicator" data-section="section4"></div>
+        <div class="indicator" data-section="section5"></div>
+    </div>
+    <!-- 첫 번째 영역 -->
+    <div class="section" id="section1">
+        <div class="back_img"></div>
+        <div id="main-title">Hyun Su Kim Portfolio</div>
+        <div id="scroll-indicator">
+            <div class="arrow">&#8595;</div>
+            <div class="scroll-text">Scroll Down</div>
+        </div>
+
+        <div class="line-container">
+            <div class="line"></div>
+            <div class="left-text">Web<br>Developer</div>
+            <div class="contact-button">
+                <a href="mailto:s2005i@naver.com">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 두 번째 영역 -->
+    <div class="section" id="section2">
+        <svg id="background-svg" viewBox="0 0 120 20" xmlns="http://www.w3.org/2000/svg">
+            <!-- 산 그리기 -->
+            <path id="mountain1" class="mountain" d="M0,20 L10,10 L20,15 L30,10 L40,15 L50,5 L60,20 L70,15 L80,10 L90,15 L100,10 L110,20 Z" fill="#5B9BD5" />
+            <path id="mountain2" class="mountain" d="M0,20 L15,8 L30,18 L45,10 L60,16 L75,5 L90,20 L105,10 L120,20 Z" fill="#6AB0D2" />
+            <path id="mountain3" class="mountain" d="M0,20 L12,12 L24,20 L36,10 L48,18 L60,8 L72,20 L84,15 L96,20 L108,12 L120,20 Z" fill="#4A77A2" />
+        </svg>
+        <div id="my-skill">
+
+            <img src="bubble.png" alt="Bubble" id="bubble" class="bubble">
+
+            <div id="skill-text">
+                MY "<span id="skill-name"></span>"
+            </div>
+            LEVEL is
+        </div>
+        <div class="icon-container">
+            <img src="icons/html.png" alt="HTML" class="icon" data-index="1" data-color="#FF7B00">
+            <img src="icons/css.png" alt="CSS" class="icon" data-index="2" data-color="#0000F5">
+            <img src="icons/js.png" alt="JS" class="icon" data-index="3" data-color="#FFDD00">
+            <img src="icons/php.png" alt="PHP" class="icon" data-index="4" data-color="#8C1AF6">
+            <img src="icons/design.png" alt="Design" class="icon" data-index="5" data-color="#EA33F7">
+            <img src="icons/passion.png" alt="Passion" class="icon" data-index="6" data-color="#EA3323">
+        </div>
+        <div class="gauge-container">
+            <div class="gauge-bar">
+                <div id="gauge-fill"></div>
+            </div>
+            <div class="gauge-labels">
+                <span>0%</span>
+                <span id="gauge-percent">0%</span>
+                <span>100%</span>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- 세 번째 영역 -->
+    <div class="section" id="section3">
+        <div class="back_img"></div>
+        <div class="content">
+            <div class="sec3_left-text">
+                <div><img src="icons/fill.png" alt="Fill Icon" id="fill-icon" class="fill-icon"></div>
+                <p>웹 개발을 함에 있어 중요시 생각하는 것은 수익성과 편의성 입니다.</p>
+                <p>효율적이고 직관적인 코드 작성을 목표로 개발을 하고있습니다.</p>
+                <p>최신 기술에 민감하게 반응하며 적용할 수 있도록 노력하겠습니다.</p>
+                <p>사용자 경험을 최우선으로 고려하여 편리한 웹 문서를 만듭니다.</p>
+                <p>사례를 기반으로 생각하고, 끊임없이 배우고, 개선하는 개발자가 되겠습니다.</p>
+            </div>
+            <img src="photo1.gif" alt="My Photo" class="flying-photo">
+        </div>
+            <div class="line-container">
+        <div class="line"></div>
+        <div class="left-text">My<br>Conviction</div>
+        <div class="contact-button">
+            <a href="mailto:s2005i@naver.com">Contact</a>
+        </div>
+    </div>
+    </div>
+
+    <!-- 네 번째 섹션 -->
+    <div id="section4" class="section">
+        <div class="content">
+            <img src="profile2.png" alt="소개 사진" class="flying-photo4">
+            <div class="text-container">
+                <div id="intro-text"></div>
+            </div>
+        </div>
+        <div class="line-container">
+            <div class="line"></div>
+            <div class="left-text">Junior<br>Front-end</div>
+            <div class="contact-button">
+                <a href="mailto:s2005i@naver.com">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 다섯 번째 섹션 -->
+<div id="section5" class="section">
+    <div id="icons-container">
+        <img src="icons/github.png" id="github-icon" class="section-icon" alt="GitHub">
+        <img src="icons/blog.png" id="blog-icon" class="section-icon" alt="Blog">
+    </div>
+    <div id="content-container" class="content-container">
+        <!-- GitHub 카드들 -->
+        <div id="github-cards" class="cards-container hidden">
+            <div class="card" data-link="https://github.com/jejuKIM99/Goods_Shop">
+                <img src="git1.gif" class="card-image" alt="Repo 1">
+                <p class="card-description">Idoly Pride Goods_Shop</p>
+                <p class="card-description-inside">게임 'Idoly Pride'의 굿즈 판매 페이지 프로젝트 입니다.<br>PHP프로젝트입니다. 자세한 내용은 해당 사이트 README.MD를 참조해 주십시오.</p>
+                <a href="https://github.com/jejuKIM99/Goods_Shop" target="_blank" class="card-link">more</a>
+            </div>
+            <div class="card" data-link="https://github.com/jejuKIM99/Music_Streaming-Exphp_RecentVersion">
+                <img src="git2.PNG" class="card-image" alt="Repo 2">
+                <p class="card-description">Music_Streaming-Exphp_RecentVersion</p>
+                <p class="card-description-inside">PHP를 이용한 음악 스트리밍 서비스입니다. <br> 학부 '웹 프로그래밍' 강의에서 2인 조별과제로 진행한 프로젝트이며, DB를 제외한 기획,디자인,개발 부분에 참여하였습니다. </p>
+                <a href="https://github.com/jejuKIM99/Music_Streaming-Exphp_RecentVersion" target="_blank" class="card-link">more</a>
+            </div>
+        </div>
+        <!-- 블로그 아이콘들 -->
+        <div id="blog-icons" class="icons-container hidden">
+            <a href="https://blog.naver.com/many_opinions" target="_blank">
+                <img src="icons/naver.png" class="blog-icon" alt="Naver Blog">
+            </a>
+            <a href="https://homeless-programmer.tistory.com/" target="_blank">
+                <img src="icons/tistory.png" class="blog-icon" alt="Tistory Blog">
+            </a>
+        </div>
+    </div>
+    <div class="line-container">
+        <div class="line"></div>
+        <div class="left-text">Github &<br>My Blog</div>
+        <div class="contact-button">
+            <a href="mailto:s2005i@naver.com">Contact</a>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

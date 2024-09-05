@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
+/* 사이드 인디케이터 스타일 */
+#side-indicator {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000; /* 다른 콘텐츠 위에 표시되도록 */
+}
+
+.indicator {
+    width: 10px;
+    height: 40px;
+    background-color: #505050;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #FF0000; /* 강조 색상 */
+}
+
+
+.section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.back_img {
+    position: fixed;
+    width: 100%;
+    background-image: url(noise.gif);
+    height: 100%;
+    opacity: 0.16;
+}
+
+#main-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 4em;
+    opacity: 1;
+    position: relative;
+}
+
+#main-title span {
+    display: inline-block;
+}
+
+#scroll-indicator {
+    margin-top: 5rem;
+    text-align: center;
+    opacity: 0;
+}
+
+.arrow {
+    font-size: 2em;
+    animation: bounce 1s infinite alternate;
+}
+
+.scroll-text {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    margin-top: 5px;
+    animation: fadeIn 2s infinite;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.line-container {
+    position: absolute;
+    top: 6%;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.line {
+    width: 80%;
+    border-top: 1px solid #fff;
+    position: absolute;
+    top: 10%;
+    z-index: 1;
+}
+
+.left-text {
+    position: absolute;
+    text-align:left;
+    top: 12%;
+    left: 10%;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.4rem;
+    color: #fff;
+    z-index: 2;
+}
+
+.contact-button {
+    top: 12%;
+    right: 10%;
+    border: 1px solid #505050;
+    line-height: 70px;
+    width: 70px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+}
+
+.contact-button a {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+}
+
+.contact-button:hover {
+    background-color: #1d1d1d53;
+    color: #fff;
+}
+
+/* 두 번째 섹션 */
+#section2 {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 3em;
+    transition: transform 1s ease-in-out;
+    z-index: 0;
+    background-image: url(back2.png);
+}
+
+#my-skill{
+    border-bottom: dashed thick;
+    text-align: center;
+    width: 36rem;
+    position: relative;
+}
+
+/* 기술명 텍스트 */
+#skill-text {
+    font-family: "Raleway", sans-serif;
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+#skill-name {
+    font-weight: 700;
+    color: #000; /* 초기 색상은 기본 색상으로 설정 */
+}
+
+/* 아이콘 컨테이너 */
+.icon-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    position: relative;
+    width: 80%;
+    justify-content: center;
+}
+
+/* 아이콘 이미지 */
+.icon {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* 추가된 말풍선 스타일 */
+.bubble {
+    position: absolute;
+    top: -100px; /* #my-skill의 위쪽 */
+    left: -130px; /* #my-skill의 왼쪽 */
+    width: 150px; /* 원하는 크기로 조정 */
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.bubble.show {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+/* 아이콘 애니메이션을 위한 스타일 */
+@keyframes iconIn {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+body.scrolling #section2 .icon {
+    animation: iconIn 1s ease-out forwards;
+}
+
+/* 게이지 막대 */
+.gauge-container {
+    margin-top: 40px;
+    width: 80%;
+    text-align: center;
+}
+
+.gauge-bar {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#gauge-fill {
+    height: 100%;
+    background-color: #000;
+    width: 0;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+.gauge-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.gauge-labels span {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 0.4em;
+}
+
+/* SVG 스타일 */
+#background-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none; /* 클릭 이벤트를 받지 않도록 설정 */
+    z-index: -1;
+    opacity: 0; /* 초기에는 보이지 않도록 설정 */
+}
+
+.mountain {
+    opacity: 0;
+}
+
+/* 세 번째 섹션 */
+#section3 {
+    position: absolute;
+    top: 0;
+    left: 200%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 1s ease-in-out;
+    z-index: 0;
+}
+
+#section3 .content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.sec3_left-text {
+    color: #4a4a4a;
+    font-size: 1.5rem;
+    font-family: "Gugi", sans-serif;
+    font-weight: 400;
+    margin-right: 50px;
+}
+
+.flying-photo {
+    border-radius: 8px;
+    width: 700px;
+    max-width: 80%;
+    aspect-ratio: 16/9;
+    transform: translateX(1000px);
+    opacity: 0;
+}
+
+.fill-icon {
+    position: absolute;
+    top: -2rem;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.fill-icon.clicked {
+    content: url('icons/fill_click.png');
+}
+
+.text-filled {
+    color: #fff;
+}
+
+/* 애니메이션 */
+@keyframes flyIn {
+    0% {
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 네 번째 섹션 */
+#section4 {
+    position: absolute;
+    top: 0;
+    left: 300%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    transition: transform 1s ease-in-out;
+    z-index: 0;
+}
+
+.flying-photo4 {
+    border-radius: 8px;
+    width: 300px;
+    height: auto;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.text-container {
+    margin-left: 50px;
+    font-family: "Gugi", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #ffffff;
+    max-width: 60%; /* 텍스트 컨테이너의 최대 너비를 설정 */
+    text-align: left; /* 텍스트 정렬 왼쪽으로 설정 */
+}
+
+.text-line {
+    opacity: 0;
+    white-space: pre-wrap; /* 줄 바꿈 유지 */
+}
+
+/* 중앙 정렬을 위한 콘텐츠 컨테이너 */
+#section4 .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 100px; /* 사진과 텍스트 간격 조정 */
+}
+
+/* 타이핑 애니메이션 */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    0% { border-right: 2px solid transparent; }
+    100% { border-right: 2px solid #333; }
+}
+
+/* 다섯 번째 섹션 */
+#section5 {
+    position: absolute;
+    top: 0;
+    left: 400%; /* 이전 섹션 크기에 따라 위치 조정 */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    transition: transform 1s ease-in-out;
+    z-index: 0;
+}
+
+#icons-container {
+    position: absolute;
+    left: 24rem;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.section-icon {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.cards-container {
+    display: flex;
+    gap: 30px;
+}
+
+.card {
+    border: solid red;
+    width: 300px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.card-image {
+    box-shadow: 0px 3px 4px black;
+    width: 100%;
+    height: auto;
+}
+
+.card-description {
+    color: #000;
+    padding: 10px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    border-bottom-style: solid;
+}
+.card-description-inside {
+    color: #000;
+    padding: 10px;
+    font-family: "Gugi", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.card-link {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: red;
+    text-decoration: underline;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+}
+
+.hidden {
+    display: none;
+}
+
+.blog-icon {
+    width: 70px;
+    height: 70px;
+    margin: 40px;
+}

@@ -31,3 +31,14 @@
   <p align="middle">
   <a href="https://jejukim99.github.io/jejuKIM.github.io/">🖥️ Go to the Portfolio website</a>
 </p>
+
+# 💻 Update Note
+<br/>
+
+> 2024-09-05: Distribution <br> 2024-09-06: Create README.MD <br> From 2024-09-06: Creating a mobile optimization site
+
+<br/>
+
+- 2024-09-05: 배포
+- 2024-09-06: README.MD 생성
+- 2024-09-06 ~ : 모바일 최적화 사이트 제작중

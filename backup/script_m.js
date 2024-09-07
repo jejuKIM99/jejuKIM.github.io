@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const scrollIndicator = document.getElementById('scroll-indicator');
     const indicators = document.querySelectorAll('.indicator');
     const video = document.getElementById('intro-video');
+    const videoDuration = 6000; // 6초를 밀리초로 변환
 
     // Split the text into spans for each line
     titleLines.forEach(line => {
@@ -72,36 +73,5 @@ document.addEventListener("DOMContentLoaded", function() {
         indicator.addEventListener('click', () => {
             fullpage_api.moveTo(index + 1);
         });
-    });
-
-    // 두 번째 섹션에 대한 코드 추가
-    const cards = document.querySelectorAll('#cards-container .card');
-    const cardContent = document.getElementById('card-content');
-    const contentText = document.getElementById('content-text');
-    const closeBtn = document.getElementById('close-btn');
-
-    cards.forEach((card, index) => {
-        // 카드에 대한 이미지 URL 설정
-        card.style.backgroundImage = `url('card/card${index + 1}.png')`;
-
-        // 카드에 데이터 설정
-        card.setAttribute('data-content', `Content for Card ${index + 1}`);
-
-        card.addEventListener('click', () => {
-            const content = card.getAttribute('data-content');
-
-            cardContent.classList.add('active');
-            contentText.textContent = content;
-
-            gsap.to(cards, { opacity: 0, duration: 0.5 });
-            gsap.fromTo(cardContent, { scale: 0 }, { scale: 1, duration: 0.5, ease: "power4.out" });
-        });
-    });
-
-    closeBtn.addEventListener('click', () => {
-        gsap.to(cardContent, { scale: 0, duration: 0.5, ease: "power4.in", onComplete: () => {
-            cardContent.classList.remove('active');
-            gsap.to(cards, { opacity: 1, duration: 0.5 });
-        }});
     });
 });

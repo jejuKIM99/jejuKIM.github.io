@@ -150,11 +150,23 @@
         </div>
     </div>
 </div>
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        // 모바일 디바이스 감지 함수
+        function isMobileDevice() {
+            return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // 모바일 디바이스 감지 시 안내창 띄우기
+        if (isMobileDevice()) {
+            const userChoice = confirm("모바일 전용 페이지로 이동하시겠습니까?");
+            if (userChoice) {
+                window.location.href = "index_m.html";  // 모바일 페이지로 이동
+            } 
+            // No를 누르면 아무 작업도 하지 않고 현재 페이지에 머무름
+        }
+    </script>
 </body>
 </html>

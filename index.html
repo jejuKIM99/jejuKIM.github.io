@@ -154,9 +154,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="script.js"></script>
     <script>
-        // 모바일 디바이스 감지 함수
+        // UserAgent 및 화면 크기 기반으로 모바일 디바이스 감지
         function isMobileDevice() {
-            return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            return (window.matchMedia("(max-width: 768px)").matches || /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
         }
 
         // 모바일 디바이스 감지 시 안내창 띄우기

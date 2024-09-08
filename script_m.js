@@ -81,7 +81,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeBtn = document.getElementById('close-btn');
 
     // 카드 색상 설정
-    const cardColors = ['rgb(86 187 65 / 90%)', '#927988', '#1B1C5C', '#FD835C', '#640294'];
+    const cardColors = ['rgb(86 187 65 / 90%)', 'rgb(239 117 190 / 90%)', 'rgb(48 78 223 / 90%)', 'rgb(255 113 68 / 90%)', 'rgb(183 36 255 / 90%)'];
+
+    let timeoutId; // 타이핑 애니메이션 ID를 저장할 변수
 
     cards.forEach((card, index) => {
         // 카드에 대한 이미지 URL 설정
@@ -113,6 +115,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     closeBtn.addEventListener('click', () => {
+        // 타이핑 애니메이션 중단
+        clearTimeout(timeoutId);
+
         gsap.to(cardContent, { scale: 0, duration: 0.5, ease: "power4.in", onComplete: () => {
             cardContent.classList.remove('active');
             cardContent.querySelector('#content-text').innerHTML = ''; // 텍스트 초기화
@@ -128,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
         수익성과 효율성을 생각하는 개발자 입장에서의 생각을 합니다.\n
         새로운 아이디어로 사용자에게 색다른 경험을 제공하고,\n
         더 많은 개발 경험으로 발전하는 개발자가 되겠습니다.`;
+        
         let index = 0;
         element.innerHTML = '';
 
@@ -139,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     element.innerHTML += text.charAt(index);
                 }
                 index++;
-                setTimeout(type, 30); // 타이핑 속도 조정
+                timeoutId = setTimeout(type, 30); // 타이핑 속도 조정 및 타이핑 ID 저장
             }
         }
         

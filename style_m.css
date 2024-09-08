@@ -152,8 +152,8 @@ body, html {
 }
 
 .card {
-    width: 60px;
-    height: 80px;
+    width: 70px;
+    height: 100px;
     color: #fff;
     display: flex;
     align-items: center;
@@ -186,14 +186,31 @@ body, html {
     padding: 20px;
     box-sizing: border-box;
     z-index: 2;
+    overflow: auto; /* 내용이 많을 경우 스크롤 가능 */
 }
 
 #card-content.active {
     display: flex;
 }
 
-#card-content #content-text {
-    font-size: 2rem;
+#card-content img {
+    width: 90dvw; /* 모바일 환경에 맞게 조정 */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: #73450b 0px 4px 7px, #c37f44 0px 8px 8px, #fbc80b 0px 12px 10px;
+}
+
+#card-content hr {
+    border: 1px solid #000000;
+    width: 100%;
+    margin: 10px 0;
+}
+
+#content-text {
+    font-family: "Gugi", sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 모바일 환경에 맞게 조정 */
     margin-bottom: 20px;
 }
 

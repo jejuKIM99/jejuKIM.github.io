@@ -80,28 +80,69 @@ document.addEventListener("DOMContentLoaded", function() {
     const contentText = document.getElementById('content-text');
     const closeBtn = document.getElementById('close-btn');
 
+    // 카드 색상 설정
+    const cardColors = ['rgb(86 187 65 / 90%)', '#927988', '#1B1C5C', '#FD835C', '#640294'];
+
     cards.forEach((card, index) => {
         // 카드에 대한 이미지 URL 설정
         card.style.backgroundImage = `url('card/card${index + 1}.png')`;
 
         // 카드에 데이터 설정
-        card.setAttribute('data-content', `Content for Card ${index + 1}`);
+        card.setAttribute('data-content', `content${index + 1}`);
 
         card.addEventListener('click', () => {
-            const content = card.getAttribute('data-content');
+            const contentId = card.getAttribute('data-content');
+            const contentDiv = document.getElementById(contentId);
 
+            // 모든 카드 컨텐츠 숨기기
+            document.querySelectorAll('.card-details').forEach(div => div.style.display = 'none');
+            
+            // 카드 컨텐츠 배경색 설정 및 표시
+            cardContent.style.backgroundColor = cardColors[index];
             cardContent.classList.add('active');
-            contentText.textContent = content;
-
-            gsap.to(cards, { opacity: 0, duration: 0.5 });
             gsap.fromTo(cardContent, { scale: 0 }, { scale: 1, duration: 0.5, ease: "power4.out" });
+
+            // 카드 컨텐츠 텍스트 애니메이션
+            if (contentId === 'content1') {
+                contentDiv.style.display = 'block';
+                typeText(contentDiv.querySelector('#content-text'));
+            } else {
+                contentDiv.style.display = 'block';
+            }
         });
     });
 
     closeBtn.addEventListener('click', () => {
         gsap.to(cardContent, { scale: 0, duration: 0.5, ease: "power4.in", onComplete: () => {
             cardContent.classList.remove('active');
-            gsap.to(cards, { opacity: 1, duration: 0.5 });
+            cardContent.querySelector('#content-text').innerHTML = ''; // 텍스트 초기화
+            cardContent.querySelectorAll('.profile, .divider').forEach(el => el.remove()); // 이미지와 구분선 제거
         }});
     });
+
+    // 텍스트 타이핑 애니메이션
+    function typeText(element) {
+        const text = `사례 분석을 통한 새로운 아이디어를 창출하는 Junior Front-end 개발자 김현수 입니다.\n
+        개발자와 사용자 양측의 입장에서 생각하고 웹사이트 개발을 하고 있습니다.\n
+        사용자에게 일관적인 경험을 제공해야 한다는 사용자 입장에서의 생각과,\n
+        수익성과 효율성을 생각하는 개발자 입장에서의 생각을 합니다.\n
+        새로운 아이디어로 사용자에게 색다른 경험을 제공하고,\n
+        더 많은 개발 경험으로 발전하는 개발자가 되겠습니다.`;
+        let index = 0;
+        element.innerHTML = '';
+
+        function type() {
+            if (index < text.length) {
+                if (text.charAt(index) === '\n') {
+                    element.innerHTML += '<br>';
+                } else {
+                    element.innerHTML += text.charAt(index);
+                }
+                index++;
+                setTimeout(type, 30); // 타이핑 속도 조정
+            }
+        }
+        
+        type();
+    }
 });

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
 
 body, html {
@@ -115,4 +116,126 @@ body, html {
     }
 }
 
+/*section2*/
 
+.back_img2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(noise.gif);
+    background-position: center;
+    opacity: 0.4;
+    z-index: 0; /* 배경 이미지의 z-index 조정 */
+}
+
+#section2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    background-image: url(sec2.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#cards-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 3rem;
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.card {
+    width: 60px;
+    height: 80px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    background-size: contain; /* 배경 이미지 크기 조정 */
+    background-position: center; /* 배경 이미지 위치 조정 */
+    background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+#card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+#card-content.active {
+    display: flex;
+}
+
+#card-content #content-text {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* section2 텍스트 중앙 배치 */
+.sec2-text-container {
+    gap: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 부모 요소를 기준으로 중앙 정렬 */
+    z-index: 1; /* 이미지 위에 텍스트 배치 */
+    text-align: center;
+    color: white; /* 텍스트 색상 */
+    display: flex;
+    flex-direction: column; /* 세로로 텍스트 배치 */
+    align-items: center;
+}
+
+.sec2-text1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.sec2-text2 {
+    opacity: 0.6;
+    font-size: 1.4rem;
+    font-family: "Nanum Pen Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sec2-text3 {
+    font-size: 0.8rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}

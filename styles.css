@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500;700&display=swap');
 
 body {
     margin: 0;
@@ -429,96 +430,143 @@ body.scrolling #section2 .icon {
 #section5 {
     position: absolute;
     top: 0;
-    left: 400%; /* 이전 섹션 크기에 따라 위치 조정 */
+    left: 400%;
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-    transition: transform 1s ease-in-out;
-    z-index: 0;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-#icons-container {
-    position: absolute;
-    left: 24rem;
+/* 카드 컨테이너 */
+.cards-container {
+    width: 1400px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 
-.section-icon {
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
+/* 카드 스타일 */
+.card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-sizing: border-box;
 }
 
-#content-container {
+/* GitHub 카드 */
+.github-card {
+    gap: 4rem;
+}
+
+.github-card .card-icon {
+    width: 80px;
+}
+
+.github-card .card-icon img {
+    width: 100%;
+}
+
+.github-card .card-content {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.github-card .card-content hr{
+    border-radius: 5px;
+    height: 2px;
+    width: 100%;
+    background-color: #FF0000;
+    border: none;
+}
+
+.github-card .card-content img{
+    width: 20rem;
+}
+
+
+.github-card .project {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 20rem;
+    padding: 1.2rem;
+    border-radius: 10px;
+    color: #000;
+    margin-bottom: 20px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 80%;
 }
 
-.cards-container {
-    display: flex;
-    gap: 30px;
+.github-card .project h3 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    font-size: 2rem;
 }
 
-.card {
-    border: solid red;
-    width: 300px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transform: scale(0);
-    opacity: 0;
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+.github-card .project p {
+    font-family: "Sunflower", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.8rem;
+    margin: 5px 0 0;
+    font-size: 1.1rem;
 }
 
-.card-image {
-    box-shadow: 0px 3px 4px black;
-    width: 100%;
-    height: auto;
-}
-
-.card-description {
-    color: #000;
-    padding: 10px;
-    font-family: "Raleway", sans-serif;
+.github-card .project p span{
+    font-size: 1.2rem;
     font-weight: 700;
-    font-size: 1.4rem;
-    border-bottom-style: solid;
+    color: #FF0000;
 }
-.card-description-inside {
-    color: #000;
-    padding: 10px;
+
+.github-card .project .project-link{
+    text-decoration: underline;
+    color: #FF0000;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+
+}
+
+.project-a-container{
+    display: flex;
+    gap: 2rem;
+}
+
+/* 블로그 카드 */
+.blog-card {
+    flex-direction: column;
+}
+
+.blog-card ul {
+    gap: 4rem;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blog-card li {
     font-family: "Gugi", sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.4rem;
 }
 
-.card-link {
-    display: block;
-    padding: 10px;
-    text-align: center;
-    color: red;
+.blog-card a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease-in-out;
+}
+
+.blog-card a:hover {
+    
+    color: #FF0000;
     text-decoration: underline;
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
 }
-
-.hidden {
-    display: none;
-}
-
-.blog-icon {
-    width: 70px;
-    height: 70px;
-    margin: 40px;
-}
-
-

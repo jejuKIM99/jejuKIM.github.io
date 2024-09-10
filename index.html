@@ -109,47 +109,70 @@
             </div>
         </div>
     </div>
-
-    <!-- 다섯 번째 섹션 -->
+<!-- 다섯 번째 섹션 -->
 <div id="section5" class="section">
-    <div id="icons-container">
-        <img src="icons/github.png" id="github-icon" class="section-icon" alt="GitHub">
-        <img src="icons/blog.png" id="blog-icon" class="section-icon" alt="Blog">
-    </div>
-    <div id="content-container" class="content-container">
-        <!-- GitHub 카드들 -->
-        <div id="github-cards" class="cards-container hidden">
-            <div class="card" data-link="https://github.com/jejuKIM99/Goods_Shop">
-                <img src="git1.gif" class="card-image" alt="Repo 1">
-                <p class="card-description">Idoly Pride Goods_Shop</p>
-                <p class="card-description-inside">게임 'Idoly Pride'의 굿즈 판매 페이지 프로젝트 입니다.<br>PHP프로젝트입니다. 자세한 내용은 해당 사이트 README.MD를 참조해 주십시오.</p>
-                <a href="https://github.com/jejuKIM99/Goods_Shop" target="_blank" class="card-link">more</a>
+    <div class="cards-container">
+        <!-- GitHub 카드 -->
+        <div class="card github-card">
+            <div class="card-icon">
+                <img src="icons/github.png" alt="GitHub">
             </div>
-            <div class="card" data-link="https://github.com/jejuKIM99/Music_Streaming-Exphp_RecentVersion">
-                <img src="git2.PNG" class="card-image" alt="Repo 2">
-                <p class="card-description">Music_Streaming-Exphp_RecentVersion</p>
-                <p class="card-description-inside">PHP를 이용한 음악 스트리밍 서비스입니다. <br> 학부 '웹 프로그래밍' 강의에서 2인 조별과제로 진행한 프로젝트이며, DB를 제외한 기획,디자인,개발 부분에 참여하였습니다. </p>
-                <a href="https://github.com/jejuKIM99/Music_Streaming-Exphp_RecentVersion" target="_blank" class="card-link">more</a>
+            <div class="card-content">
+                <div class="project">
+                    <h3>Idoly Pride Goods_Shop</h3>
+                    <hr>
+                    <img src="git1.PNG">
+                    <hr>
+                    <p>● 게임 <span>'Idoly Pride'</span>의 굿즈 판매 페이지를 <span style="color:blueviolet;">PHP</span>로 제작한 개인 프로젝트 입니다.<br>
+                       ● 로그인/회원가입, 상품 목록, 마이페이지 등의 기능과 애니메이션을 구현했습니다.<br>
+                       ● 자세한 내용은 해당 사이트 <span>README.MD</span>를 참조해 주십시오.</p>
+                       <hr>
+                       <div class="project-a-container">
+                       <a href="https://github.com/jejuKIM99/Goods_Shop" target="_blank" class="project-link">Github</a>
+                       </div>
+                </div>
+                <div class="project">
+                    <h3>Music_Streaming</h3>
+                    <hr>
+                    <img src="git2.PNG">
+                    <hr>
+                    <p>● <span style="color: blueviolet;">PHP</span>를 이용한 <span>음악 스트리밍</span> 서비스입니다.<br>
+                        ● 학부 '웹 프로그래밍' 강의에서 2인 조별과제로 진행한 프로젝트이며, DB를 제외한 기획,디자인,개발 부분에 참여하였습니다.<br>
+                        ● 로그인/회원가입, 관리자페이지, 플레이리스트 등 다양한 기능을 포함하고 있습니다.</p>
+                        <hr>
+                        <div class="project-a-container">
+                        <a href="https://github.com/jejuKIM99/Music_Streaming-Exphp_RecentVersion" target="_blank" class="project-link">Github</a>
+                        </div>
+                </div>
+                <div class="project">
+                    <h3>Portfolio site</h3>
+                    <hr>
+                    <img src="git3.PNG">
+                    <hr>
+                    <p>● <span>개인 포트폴리오</span>를 위한 개인 프로젝트입니다. <span style="color: orange;">HTML5</span>, <span style="color: blue;">CSS3</span>, <span style="color: rgb(152, 152, 20);">JS</span>를 이용하여 제작하였습니다.<br>
+                        ● PC브라우저 페이지와 모바일 전용 페이지가 분리되어 있습니다.<br>
+                        ● <span>인터렉션</span>과 <span>애니메이션</span>을 이용한 동적인 화면을 구현했습니다.<br>
+                        ● 자세한 내용은 해당 프로젝트의 <span>README.MD</span>를 참고해 주십시오.
+                        <hr>
+                        <div class="project-a-container">
+                        <a href="https://github.com/jejuKIM99/jejuKIM.github.io?tab=readme-ov-file" target="_blank" class="project-link">Github</a>
+                        <a href="https://jejukim99.github.io/jejuKIM.github.io/" target="_blank" class="project-link">Demo</a>
+                        </div>
+                    </p>
+                </div>
             </div>
         </div>
-        <!-- 블로그 아이콘들 -->
-        <div id="blog-icons" class="icons-container hidden">
-            <a href="https://blog.naver.com/many_opinions" target="_blank">
-                <img src="icons/naver.png" class="blog-icon" alt="Naver Blog">
-            </a>
-            <a href="https://homeless-programmer.tistory.com/" target="_blank">
-                <img src="icons/tistory.png" class="blog-icon" alt="Tistory Blog">
-            </a>
-        </div>
-    </div>
-    <div class="line-container">
-        <div class="line"></div>
-        <div class="left-text">Github &<br>My Blog</div>
-        <div class="contact-button">
-            <a href="mailto:s2005i@naver.com">Contact</a>
+
+        <!-- 블로그 카드 -->
+        <div class="card blog-card">
+            <ul>
+                <li><a href="https://blog.naver.com/many_opinions" target="_blank">네이버 블로그</a></li>
+                <li><a href="https://homeless-programmer.tistory.com/" target="_blank">티스토리 블로그</a></li>
+            </ul>
         </div>
     </div>
 </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="script.js"></script>
@@ -161,7 +184,7 @@
 
         // 모바일 디바이스 감지 시 안내창 띄우기
         if (isMobileDevice()) {
-            const userChoice = confirm("해당 페이지는 PC브라우저에서 탐색을 권장드립니다.\n모바일 전용 페이지로 이동하시겠습니까?");
+            const userChoice = confirm("해당 페이지는 PC브라우저에서 탐색을 권장드립니다.\n모바일 전용 페이지로 이동하시겠습니까?\n(모바일 전용 페이지에서는 PC와는 다른 컨셉의 페이지를 경험할 수 있습니다.)");
             if (userChoice) {
                 window.location.href = "index_m.html";  // 모바일 페이지로 이동
             } 

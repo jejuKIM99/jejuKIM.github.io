@@ -18,12 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const flyingPhoto4 = section4.querySelector('.flying-photo4');
     const introText = document.getElementById('intro-text');
 
-    // 다섯 번째 섹션 요소
-    const githubIcon = document.getElementById('github-icon');
-    const blogIcon = document.getElementById('blog-icon');
-    const githubCards = document.getElementById('github-cards');
-    const blogIcons = document.getElementById('blog-icons');
-
     // 사이드 인디케이터 관련 변수
     const sideIndicators = document.querySelectorAll('#side-indicator .indicator');
 
@@ -84,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let animationPlayed = false; // 두 번째 섹션 애니메이션 상태 추적
     let section3Played = false;  // 세 번째 섹션 애니메이션 상태 추적
     let section4Played = false;  // 네 번째 섹션 애니메이션 상태 추적
-    let section5Played = false;  // 다섯 번째 섹션 애니메이션 상태 추적
 
     document.addEventListener('wheel', (event) => {
         if (isScrolling) return;
@@ -158,12 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (targetScroll === 3 * sectionWidth && !section4Played) {
                         triggerSection4Animations();
                         section4Played = true;  // 네 번째 섹션 애니메이션 실행 상태 업데이트
-                    }
-
-                    // 다섯 번째 섹션 애니메이션
-                    if (targetScroll === 4 * sectionWidth && !section5Played) {
-                        triggerSection5Animations();
-                        section5Played = true;  // 다섯 번째 섹션 애니메이션 실행 상태 업데이트
                     }
                 }
             });
@@ -239,38 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
     }
 
-    // 다섯 번째 섹션 애니메이션
-    function triggerSection5Animations() {
-        gsap.fromTo(githubIcon,
-            { opacity: 0, scale: 0.5 },
-            { opacity: 1, scale: 1, duration: 1, ease: 'power2.out' }
-        );
-
-        gsap.fromTo(blogIcon,
-            { opacity: 0, scale: 0.5 },
-            { opacity: 1, scale: 1, duration: 1, ease: 'power2.out', delay: 0.5 }
-        );
-
-        githubIcon.addEventListener('click', () => {
-            githubCards.classList.remove('hidden');
-            blogIcons.classList.add('hidden');
-
-            // 카드 애니메이션
-            const cards = document.querySelectorAll('#github-cards .card');
-            cards.forEach((card, index) => {
-                gsap.fromTo(card,
-                    { scale: 0, opacity: 0, x: () => (index % 2 === 0 ? -500 : 500), y: () => (index % 2 === 0 ? -500 : 500) },
-                    { scale: 1, opacity: 1, x: 0, y: 0, duration: 0.5, ease: 'power2.out', delay: index * 0.3 }
-                );
-            });
-        });
-
-        blogIcon.addEventListener('click', () => {
-            blogIcons.classList.remove('hidden');
-            githubCards.classList.add('hidden');
-        });
-    }
-
     // 사이드 인디케이터 클릭 이벤트 처리
     sideIndicators.forEach(indicator => {
         indicator.addEventListener('click', () => {
@@ -309,12 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentSectionIndex === 3 && !section4Played) {
             triggerSection4Animations();
             section4Played = true;
-        }
-
-        // 다섯 번째 섹션 애니메이션 트리거
-        if (currentSectionIndex === 4 && !section5Played) {
-            triggerSection5Animations();
-            section5Played = true;
         }
     }
 
